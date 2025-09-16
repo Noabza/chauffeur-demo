@@ -451,7 +451,7 @@ ol {
   flex-wrap: wrap;
   gap: 1rem;
   justify-content: center;
-  margin-top: 2rem;
+  margin-top: 2.5rem;
 }
 
 .hero-actions .btn {
@@ -876,6 +876,31 @@ ol {
 
   .footer-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 639px) {
+  .hero {
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    padding-inline: 1.5rem;
+  }
+
+  .hero-content {
+    width: 100%;
+    padding-inline: 0;
+    flex: 1;
+    height: 100%;
+  }
+
+  .hero-copy {
+    flex: 1;
+  }
+
+  .hero-actions {
+    width: 100%;
+    margin-top: 2.5rem;
   }
 }
 
