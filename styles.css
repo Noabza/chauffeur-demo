@@ -365,7 +365,7 @@ ol {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 0.45rem 0.9rem;
+  padding: 0.45rem 0;
   border-radius: 999px;
   border: 1px solid rgba(15, 19, 28, 0.12);
   background: #ffffff;
@@ -377,6 +377,7 @@ ol {
   cursor: pointer;
   transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
   box-shadow: 0 20px 45px -30px rgba(10, 12, 18, 0.4);
+  width: 4rem;
 }
 
 @media (hover: hover) and (pointer: fine) {
