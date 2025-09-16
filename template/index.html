@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Orangely</title>
+
+  <!-- Styles & Scripts -->
+  <script>
+    // Apply saved or preferred theme ASAP to avoid flash
+    (function() {
+      try {
+        var stored = localStorage.getItem('theme');
+        var theme = stored || (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        document.documentElement.setAttribute('data-theme', theme);
+      } catch (e) {
+        // no-op
+      }
+    })();
+  </script>
+  <link rel="stylesheet" href="css/style.css" />
+  <script defer src="js/script.js"></script>
+
+    <!-- Favicon -->
+  <link rel="icon" type="image/png" href="images/logo.png">
+  <link rel="apple-touch-icon" href="images/logo.png">
+  
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header>
+    <nav class="navbar" aria-label="Hauptnavigation">
+      <a class="brand" href="#hero">
+        <img src="images/logo.png" alt="Orangely Logo" class="brand-logo">
+        Orangely
+      </a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Menü öffnen">
+        <span class="burger"></span>
+      </button>
+      <ul id="nav-menu" class="nav-menu">
+        <li><a href="#hero">Start</a></li>
+        <li><a href="#services">Was Sie bekommen</a></li>
+        <li><a href="#process">Ablauf</a></li>
+        <li><a href="#pricing">Preis</a></li>
+        <li><a href="#about">Über mich</a></li>
+        <li><a href="#contact">Kontakt</a></li>
+      </ul>
+      <button class="theme-switch" aria-label="Darstellung umschalten" aria-pressed="false" title="Dark Mode umschalten">
+        <span class="switch-track" aria-hidden="true">
+          <span class="switch-icon sun" aria-hidden="true">
+            <svg class="icon-sun" viewBox="0 0 24 24" width="1em" height="1em" aria-hidden="true" focusable="false">
+              <circle cx="12" cy="12" r="5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              <line x1="12" y1="1" x2="12" y2="3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              <line x1="12" y1="21" x2="12" y2="23" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              <line x1="1" y1="12" x2="3" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              <line x1="21" y1="12" x2="23" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </span>
+          <span class="switch-icon moon" aria-hidden="true">
+            <svg class="icon-moon" viewBox="0 0 24 24" width="1em" height="1em" aria-hidden="true" focusable="false">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </span>
+        </span>
+        <span class="switch-thumb" aria-hidden="true"></span>
+        <span class="visually-hidden theme-label">Dark</span>
+      </button>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section id="hero" class="section hero" aria-labelledby="hero-title">
+      <div class="hero-bubble-3"></div>
+      <h1 id="hero-title">Ihre Website. <span class="accent">99€</span>. Fertig.</h1>
+      <p>Kleine Betriebe verdienen große Präsenz 🚀</p>
+      <p>
+        <a class="btn cta" href="#contact">Jetzt anfragen</a>
+      </p>
+      <p class="hero-guarantee"><span class="typed-text"></span><span class="cursor">|</span></p>
+    </section>
+
+    <!-- Was Sie bekommen -->
+    <section id="services" class="section" aria-labelledby="services-title">
+      <h2 id="services-title">Was Sie bekommen</h2>
+        <ul>
+          <li>Kunden finden Sie online</li>
+          <li>Perfekt auf jedem Handy</li>
+          <li>Alles Wichtige auf einen Blick</li>
+          <li>Rechtlich abgesichert</li>
+          <li>Domain & Hosting Einrichtung</li>
+          <li>Schnell online</li>
+          <li>Alles für 99 €</li>
+        </ul>
+    </section>
+
+    <!-- Ablauf -->
+    <section id="process" class="section" aria-labelledby="process-title">
+      <h2 id="process-title">Ablauf</h2>
+      <ol>
+        <li>
+          <strong>Briefing</strong>
+          <span>Kurzes Gespräch über Ihre Wünsche</span>
+        </li>
+        <li>
+          <strong>Umsetzung</strong>
+          <span>Ich kümmere mich um alles Technische</span>
+        </li>
+        <li>
+            <strong>Feedback</strong>
+            <span>Eine Korrekturrunde ist inklusive</span>
+        </li>
+        <li>
+          <strong>Launch</strong>
+          <span>Nach Ihrem OK geht die Seite live</span>
+        </li>
+      </ol>
+      <div class="section-cta">
+        <a class="btn cta" href="#contact">Loslegen</a>
+      </div>
+    </section>
+
+    <!-- Preis -->
+    <section id="pricing" class="section" aria-labelledby="pricing-title">
+      <h2 id="pricing-title">Alles für 99 €</h2>
+      <div class="pricing-content">
+        <ul class="pricing-features">
+          <li>Website</li>
+          <li>Mobile Optimierung</li>
+          <li>Bilder</li>
+          <li>Rechtliches</li>
+          <li>Eine Korrekturrunde</li>
+        </ul>
+        <div class="pricing-guarantee">
+          <h3>Ja, wirklich nur 99 €</h3>
+          <p>Kein Haken. Keine Abofalle. Keine bösen Überraschungen.</p>
+          <p class="pricing-tagline">Transparent. Fair. Fertig.</p>
+        </div>
+        <div class="section-cta">
+          <a class="btn cta" href="#contact">Für 99€ starten</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Über mich -->
+    <section id="about" class="section" aria-labelledby="about-title">
+      <h2 id="about-title">Über mich</h2>
+      <div class="about-content">
+        <p class="about-intro">Noah hier, aus Frankfurt 👋</p>
+        <p class="about-statement">Friseure, Cafés, Handwerker brauchen <strong>keine</strong> Agentur für <strong>3000 €</strong></p>
+        <p class="about-solution">Was sie brauchen: Eine simple Seite.<br>Die mache ich für <span class="price-highlight">99 €</span></p>
+        <div class="section-cta">
+          <a class="btn cta" href="#contact">Schreiben Sie mir</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Kontakt -->
+    <section id="contact" class="section" aria-labelledby="contact-title">
+      <h2 id="contact-title">Kontakt</h2>
+      <p>Lassen Sie uns über Ihre Website sprechen.</p>
+      <p class="contact-actions">
+        <a class="btn whatsapp" href="https://wa.me/491234567890?text=Hallo%20Orangely%2C%20ich%20möchte%20eine%20Website%20für%2099%E2%82%AC." target="_blank" rel="noopener">
+          <span class="btn-icon">💬</span> WhatsApp
+        </a>
+        <a class="btn email" 
+          href="mailto:info@orangely.de?subject=Website%20Anfrage%20–%2099€&body=Hallo%20Noah%2C%0D%0A%0D%0Aich%20interessiere%20mich%20für%20eine%20Webseite%20für%20mein%20Business%20für%2099€.%0D%0A%0D%0ASchreibe%20mir%20doch%20bitte%20zurück.%0D%0A%0D%0AViele%20Grüße">
+          <span class="btn-icon">✉️</span> E-Mail
+        </a>
+      </p>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <small>
+      © <span id="year"></span> Orangely
+      · <a href="#impressum">Impressum</a>
+      · <a href="#datenschutz">Datenschutz</a>
+    </small>
+  </footer>
+
+  <!-- Platzhalter für rechtliche Seiten -->
+  <section id="impressum" class="section" hidden aria-labelledby="impressum-title">
+    <h2 id="impressum-title">Impressum</h2>
+    <p>Platzhalter</p>
+  </section>
+
+  <section id="datenschutz" class="section" hidden aria-labelledby="datenschutz-title">
+    <h2 id="datenschutz-title">Datenschutz</h2>
+    <p>Platzhalter</p>
+  </section>
+
+</body>
+</html>
