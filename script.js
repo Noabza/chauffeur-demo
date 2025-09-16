@@ -8,6 +8,42 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const navToggle = document.querySelector('.nav-toggle');
   const navMenu = document.getElementById('nav-menu');
+  const translationCache = {};
+
+  const applyTranslations = (messages) => {
+    if (!messages) return;
+    document.querySelectorAll('[data-i18n]').forEach((element) => {
+      const key = element.getAttribute('data-i18n');
+      if (!key) return;
+      const value = messages[key];
+      if (typeof value === 'string') {
+        element.textContent = value;
+      }
+    });
+  };
+
+  const loadAndApplyLanguage = (lang) => {
+    const normalized = lang === 'de' ? 'de' : 'en';
+    if (translationCache[normalized]) {
+      applyTranslations(translationCache[normalized]);
+      return;
+    }
+
+    fetch(`i18n/${normalized}.json`)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`Failed to load translations for ${normalized}`);
+        }
+        return response.json();
+      })
+      .then((data) => {
+        translationCache[normalized] = data;
+        applyTranslations(data);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
 
   if (navToggle && navMenu) {
     const closeMenu = () => {
@@ -63,6 +99,7 @@ document.addEventListener('DOMContentLoaded', () => {
       langSwitch.textContent = next === 'en' ? 'EN' : 'GER';
       langSwitch.setAttribute('aria-label', next === 'en' ? 'Switch to English' : 'Switch to German');
       html.lang = current;
+      loadAndApplyLanguage(current);
     };
 
     const storedLanguage = readStoredLanguage();
@@ -81,6 +118,8 @@ document.addEventListener('DOMContentLoaded', () => {
       writeStoredLanguage(next);
       updateUi();
     });
+  } else {
+    loadAndApplyLanguage(html.lang === 'de' ? 'de' : 'en');
   }
 
   const brand = document.querySelector('.brand');
