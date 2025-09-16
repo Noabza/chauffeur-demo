@@ -142,9 +142,12 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   const fab = document.querySelector('.fab');
+  const heroSection = document.getElementById('hero');
+  const firstContentSection = document.querySelector('#services');
   if (fab) {
     const fabToggle = fab.querySelector('.fab-toggle');
     const fabOptions = fab.querySelector('.fab-options');
+    const mobileQuery = window.matchMedia('(max-width: 639px)');
 
     const setFabState = (open) => {
       fab.classList.toggle('open', open);
@@ -154,6 +157,27 @@ document.addEventListener('DOMContentLoaded', () => {
       }
       if (fabOptions) {
         fabOptions.setAttribute('aria-hidden', open ? 'false' : 'true');
+      }
+    };
+
+    const updateFabVisibility = () => {
+      if (!mobileQuery.matches) {
+        fab.classList.remove('fab--hidden');
+        return;
+      }
+
+      if (!heroSection || !firstContentSection) {
+        fab.classList.remove('fab--hidden');
+        return;
+      }
+
+      const nextSectionRect = firstContentSection.getBoundingClientRect();
+      const threshold = window.innerHeight * 0.85;
+      const shouldShow = nextSectionRect.top <= threshold;
+      fab.classList.toggle('fab--hidden', !shouldShow);
+
+      if (!shouldShow) {
+        setFabState(false);
       }
     };
 
@@ -186,6 +210,15 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
 
+    if (typeof mobileQuery.addEventListener === 'function') {
+      mobileQuery.addEventListener('change', updateFabVisibility);
+    } else if (typeof mobileQuery.addListener === 'function') {
+      mobileQuery.addListener(updateFabVisibility);
+    }
+
+    window.addEventListener('scroll', updateFabVisibility, { passive: true });
+
     setFabState(false);
+    updateFabVisibility();
   }
 });

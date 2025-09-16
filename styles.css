@@ -510,6 +510,12 @@ ol {
   z-index: 1200;
 }
 
+.fab.fab--hidden {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(12px);
+}
+
 .fab-toggle {
   width: 3.5rem;
   height: 3.5rem;
